@@ -1,6 +1,7 @@
 import { makeStyles, TextField } from "@material-ui/core"
 import { KeyboardDatePicker } from "@material-ui/pickers"
-import { useState } from "react"
+import { useState, FC} from "react"
+import { Maybe } from "yup/lib/types"
 
 const useStyles  = makeStyles( theme =>({
     customInput:{
@@ -10,11 +11,15 @@ const useStyles  = makeStyles( theme =>({
     }
 }))
 
-const Form = ({inputs})=>{
+interface FormProps{
+    names: String
+}
+
+const Form:FC<FormProps> = ({names})=>{
     const classes = useStyles()
     
     const [name, setName] = useState()
-    const [date, setDate] = useState()
+    const [date, setDate] = useState<Maybe<Date>>(new Date())
     
     const _handleChangeName = (event)=>{
         console.log(name)
