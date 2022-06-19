@@ -9,7 +9,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Form names="Login"/>
-        <input inputMode='numeric'/>
       </header>
     </div>
   )
